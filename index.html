@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantaskan - Tetap Pantas di Setiap Aktivitas</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts (Plus Jakarta Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-body: #FAF8F5;
+            --bg-card: #FFFFFF;
+            --text-primary: #1F2421;
+            --text-muted: #6E706E;
+            --btn-dark: #202C27;
+            --btn-dark-hover: #121A17;
+            --accent-shopee: #EE4D2D;
+            --accent-wa: #25D366;
+            --border-color: #EBE8E1;
+            --brand-accent: #3A4D39;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--text-primary) !important;
+            letter-spacing: -0.5px;
+            cursor: pointer;
+        }
+
+        .nav-link {
+            color: var(--text-muted) !important;
+            font-weight: 500;
+            font-size: 0.92rem;
+            padding: 8px 18px !important;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary) !important;
+            background-color: #EFECE6;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 70px 0 50px 0;
+            background: linear-gradient(180deg, #F3EFEA 0%, var(--bg-body) 100%);
+        }
+
+        .hero-badge {
+            background-color: #EBE5DC;
+            color: var(--text-primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-weight: 800;
+            font-size: 2.75rem;
+            letter-spacing: -0.8px;
+            line-height: 1.25;
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .btn-custom-dark {
+            background-color: var(--btn-dark);
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 12px 28px;
+            border-radius: 10px;
+            border: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-custom-dark:hover {
+            background-color: var(--btn-dark-hover);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        /* Card Product Styling */
+        .card-custom {
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            background: var(--bg-card);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            overflow: hidden;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+        }
+
+        .img-container {
+            background-color: #F7F5F0;
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .badge-category {
+            background-color: #EFECEC;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.72rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        .badge-affiliate {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: rgba(238, 77, 45, 0.92);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .btn-shopee {
+            background-color: var(--accent-shopee);
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-shopee:hover {
+            background-color: #d73d1d;
+            color: white;
+        }
+
+        .btn-wa-outline {
+            border: 1.5px solid var(--accent-wa);
+            color: #128C7E;
+            font-weight: 600;
+            font-size: 0.82rem;
+            border-radius: 8px;
+            background: transparent;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-wa-outline:hover {
+            background-color: var(--accent-wa);
+            color: white;
+        }
+
+        /* Metric & Testimonial Styling */
+        .metric-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--brand-accent);
+        }
+
+        .testi-card {
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px;
+            height: 100%;
+        }
+
+        .chat-bubble {
+            background-color: #F4F8F5;
+            border-left: 3px solid var(--accent-wa);
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 0.88rem;
+            color: var(--text-primary);
+        }
+
+        .badge-testi-type {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .badge-shopee-review {
+            background-color: #FFEAE6;
+            color: var(--accent-shopee);
+        }
+
+        .badge-stylist-review {
+            background-color: #E6F9EE;
+            color: #128C7E;
+        }
+
+        .avatar-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--brand-accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* App Mockup Styling */
+        .app-mockup {
+            background: #111;
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            max-width: 320px;
+            margin: 0 auto;
+            border: 4px solid #333;
+        }
+
+        .app-screen {
+            background: #FAF8F5;
+            border-radius: 28px;
+            overflow: hidden;
+            padding: 16px;
+        }
+
+        /* Feature Box */
+        .feature-box {
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px 20px;
+            height: 100%;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #F3EFEA;
+            color: var(--btn-dark);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        /* Floating WA */
+        .floating-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--accent-wa);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 8px 16px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease;
+        }
+
+        .floating-wa:hover {
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Footer Links & Socials */
+        footer a {
+            text-decoration: none;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+        footer a:hover {
+            color: var(--text-primary);
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: #F4F1EA;
+            color: var(--text-primary) !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--btn-dark);
+            color: #FFFFFF !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR (3 MENU UTAMA: Tentang Kami, Katalog, Testimonial) -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" onclick="switchTab('home')">Pantaskan.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-2 mt-3 mt-lg-0">
+                    <li class="nav-item">
+                        <button class="nav-link border-0 bg-transparent" id="nav-about" onclick="switchTab('about')">Tentang Kami</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link border-0 bg-transparent" id="nav-katalog" onclick="switchTab('katalog')">Katalog</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link border-0 bg-transparent" id="nav-testi" onclick="switchTab('testi')">Testimonial</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HALAMAN: HOME -->
+    <div id="page-home">
+        <!-- HERO SECTION -->
+        <section class="hero-section text-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <span class="hero-badge mb-3"><i class="fa-solid fa-wand-magic-sparkles me-1"></i> Solusi Padu Padan Outfit Transisi</span>
+                        <h1 class="hero-title mb-3">Tampil "Pantas" & Percaya Diri di Setiap Transisi Aktivitas</h1>
+                        <p class="hero-subtitle mb-4">
+                            Dari kelas pagi, kerja di kafe, hingga hangout malam. Temukan kurasi outfit praktis serbaguna yang terhubung langsung ke official store <strong>Shopee Affiliate</strong> atau konsultasikan gaya personalmu secara gratis bersama Stylist kami!
+                        </p>
+                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                            <button class="btn btn-custom-dark" onclick="switchTab('katalog')"><i class="fa-solid fa-border-all me-2"></i> Jelajahi 8+ Katalog</button>
+                            <a href="https://wa.me/6281234567890?text=Halo%20Stylist%20Pantaskan,%20aku%20mau%20konsultasi%20style%20transisi%20dong!" target="_blank" rel="noopener noreferrer" class="btn btn-custom-dark"><i class="fa-brands fa-whatsapp me-2"></i> Konsultasi Stylist Gratis</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORE & COMMUNITY RATING -->
+        <section class="py-4 bg-white border-bottom border-top">
+            <div class="container">
+                <div class="row g-3">
+                    <div class="col-6 col-md-3">
+                        <div class="metric-card p-3">
+                            <div class="metric-value">4.9 / 5.0</div>
+                            <div class="text-muted small fw-semibold"><i class="fa-solid fa-star text-warning"></i> Rating Ulasan Produk</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="metric-card p-3">
+                            <div class="metric-value">1,500+</div>
+                            <div class="text-muted small fw-semibold">Sesi Konsultasi Stylist</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="metric-card p-3">
+                            <div class="metric-value">99.4%</div>
+                            <div class="text-muted small fw-semibold">Kepuasan Konsumen</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="metric-card p-3">
+                            <div class="metric-value">100%</div>
+                            <div class="text-muted small fw-semibold">Shopee Mall & Star Verified</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KATALOG PREVIEW -->
+        <section class="py-5">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-end mb-4">
+                    <div>
+                        <h3 class="fw-bold fs-3 mb-1">Kurasi Rekomendasi Outfit</h3>
+                        <p class="text-muted small mb-0">Rekomendasi set busana favorit untuk efisiensi dan mobilitas harian</p>
+                    </div>
+                    <button class="btn btn-link text-decoration-none text-dark fw-semibold p-0" onclick="switchTab('katalog')">Lihat Semua (8 Produk) <i class="fa-solid fa-arrow-right ms-1"></i></button>
+                </div>
+                <div class="row g-3 g-md-4" id="home-katalog-grid"></div>
+            </div>
+        </section>
+
+        <!-- APP PREVIEW & SYNC SECTION -->
+        <section class="py-5" style="background-color: #EFECE6;">
+            <div class="container">
+                <div class="row align-items-center gy-4">
+                    <div class="col-lg-6">
+                        <span class="hero-badge mb-2">Aplikasi Mobile Pantaskan</span>
+                        <h2 class="fw-bold mb-3">Solusi Kemudahan Padu Padan Outfit di Genggaman</h2>
+                        <p class="text-muted mb-4">Integrasi sempurna antara aplikasi dan website. Nikmati kemudahan rekomendasi Virtual Stylist, simpan katalog favorit, serta tautan checkout Shopee resmi tanpa perlu berganti platform.</p>
+                        
+                        <div class="d-flex flex-column gap-2 mb-4">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-success"></i>
+                                <span class="small fw-semibold">Rekomendasi AI Stylist Sesuai Agenda Harian</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-success"></i>
+                                <span class="small fw-semibold">Konsultasi Live WhatsApp Langsung dengan Curator</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/6281234567890?text=Halo%20Stylist%20Pantaskan,%20aku%20mau%20konsultasi%20style%20dong!" target="_blank" rel="noopener noreferrer" class="btn btn-custom-dark">
+                            <i class="fa-brands fa-whatsapp me-2"></i> Tanya Stylist via WhatsApp
+                        </a>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <div class="app-mockup">
+                            <div class="app-screen text-start">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="fw-bold text-dark fs-6">Pantaskan App</span>
+                                    <span class="badge bg-dark text-white" style="font-size:0.65rem;">v2.4 Live</span>
+                                </div>
+                                <div class="p-2 rounded bg-white border mb-2">
+                                    <div class="fw-semibold text-dark small"><i class="fa-solid fa-wand-magic-sparkles text-warning me-1"></i> Outfit Recommendation AI</div>
+                                    <div class="text-muted" style="font-size: 0.75rem;">Kuliah Pagi -&gt; Cafe Afternoon</div>
+                                </div>
+                                <div class="p-2 rounded bg-white border">
+                                    <div class="fw-semibold text-dark small"><i class="fa-solid fa-bag-shopping me-1 text-danger"></i> Official Shopee Store Link</div>
+                                    <div class="text-muted" style="font-size: 0.75rem;">3 Set terverifikasi siap checkout</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL PREVIEW (Ulasan Konsumen & Toko) -->
+        <section class="py-5" style="background-color: #F5F2EB;">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h3 class="fw-bold fs-3 mb-1">Ulasan Pengguna & Pengalaman Konsultasi</h3>
+                    <p class="text-muted small mb-0">Pendapat nyata konsumen yang memakai produk & berdiskusi dengan Stylist Pantaskan</p>
+                </div>
+                <div class="row g-4" id="home-testi-grid"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- HALAMAN: TENTANG KAMI -->
+    <div id="page-about" class="d-none py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <span class="hero-badge mb-3">Mengenal Pantaskan</span>
+                    <h2 class="fw-bold fs-2 mb-3">Membantu Kamu Tampil "Pantas" di Setiap Situasi</h2>
+                    <p class="text-muted leading-relaxed">
+                        Pantaskan lahir dari keresahan anak muda, mahasiswa, hingga <em>first-jobber</em> yang punya mobilitas padat. Dari kelas pagi, kerja di kafe, hingga <em>hangout</em> malam hari—kamu tak perlu bingung bawa baju ganti berlebihan. Kami mengurasi outfit transisi yang serbaguna, stylish, ramah kantong, dan terintegrasi langsung dengan link pembelian Shopee Affiliate resmi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fa-solid fa-shirt"></i></div>
+                        <h5 class="fw-bold mb-2">Desain Transisi Modul</h5>
+                        <p class="text-muted small mb-0">Satu set pakaian yang fleksibel digunakan untuk dua atau lebih agenda berbeda dalam sehari tanpa terlihat salah kostum.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                        <h5 class="fw-bold mb-2">Kurasi Afiliasi Terpercaya</h5>
+                        <p class="text-muted small mb-0">Seluruh koleksi dikurasi langsung dari Shopee Star/Mall Seller dengan kualifikasi bahan berkualitas, rating di atas 4.8, dan harga terjangkau.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fa-solid fa-comments"></i></div>
+                        <h5 class="fw-bold mb-2">Bebas Konsultasi Stylist</h5>
+                        <p class="text-muted small mb-0">Punya bentuk tubuh atau budget tertentu? Tim Stylist Pantaskan siap memberikan rekomendasi personal gratis via WhatsApp & Aplikasi Mobile.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 p-md-5 rounded-4 text-center" style="background-color: #EFECE6;">
+                <h4 class="fw-bold mb-2">Bingung Padu Padan Outfit Hari Ini?</h4>
+                <p class="text-muted small mb-4">Tim kurator kami siap membantu merancang gaya yang cocok untuk agendamu harian.</p>
+                <a href="https://wa.me/6281234567890?text=Halo%20Stylist%20Pantaskan,%20aku%20mau%20tanya-tanya%20style%20dong!" target="_blank" rel="noopener noreferrer" class="btn btn-custom-dark">
+                    <i class="fa-brands fa-whatsapp me-2"></i> Ngobrol dengan Stylist Pantaskan
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HALAMAN: KATALOG LENGKAP -->
+    <div id="page-katalog" class="d-none py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold fs-2 mb-2">Katalog & Lookbook Lengkap</h2>
+                <p class="text-muted">Koleksi variasi busana transisi kurasi lengkap dengan link Shopee Afiliasi resmi</p>
+            </div>
+
+            <!-- Filter Kategori -->
+            <div class="d-flex justify-content-center flex-wrap gap-2 mb-5" id="category-filters">
+                <button class="btn btn-sm btn-dark px-3 rounded-pill" onclick="filterKatalog('all')">Semua Variasi</button>
+                <button class="btn btn-sm btn-outline-dark px-3 rounded-pill" onclick="filterKatalog('Kuliah')">Kuliah & Campus</button>
+                <button class="btn btn-sm btn-outline-dark px-3 rounded-pill" onclick="filterKatalog('Work')">Work & Office</button>
+                <button class="btn btn-sm btn-outline-dark px-3 rounded-pill" onclick="filterKatalog('Casual')">Casual & Weekend</button>
+            </div>
+
+            <div class="row g-3 g-md-4" id="full-katalog-grid"></div>
+        </div>
+    </div>
+
+    <!-- HALAMAN: TESTIMONIAL LENGKAP (KONSUMEN + STYLIST TALKS) -->
+    <div id="page-testi" class="d-none py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="hero-badge mb-2">Ulasan Pengguna</span>
+                <h2 class="fw-bold fs-2 mb-2">Ulasan Toko & Pengalaman Diskusi Stylist</h2>
+                <p class="text-muted">Kumpulan impresi konsumen yang membeli via Shopee maupun yang berkonsultasi langsung dengan Stylist</p>
+            </div>
+            <div class="row g-4" id="full-testi-grid"></div>
+        </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Stylist%20Pantaskan,%20aku%20mau%20konsultasi%20style%20dong!" target="_blank" rel="noopener noreferrer" class="floating-wa">
+        <i class="fa-brands fa-whatsapp fs-5"></i>
+        <span>Konsultasi Style</span>
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="py-5 mt-5 border-top">
+        <div class="container">
+            <div class="row gy-4 mb-4">
+                <div class="col-md-4 text-center text-md-start">
+                    <span class="fw-bold fs-4 d-block text-dark cursor-pointer mb-2" onclick="switchTab('home')">Pantaskan.</span>
+                    <p class="text-muted small mb-3">Tetap Pantas di Setiap Aktivitas. Platform kurasi padu padan outfit transisi harian terintegrasi Shopee Affiliate.</p>
+                    <div class="d-flex justify-content-center justify-content-md-start gap-2">
+                        <a href="https://instagram.com/pantaskan.id" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram @pantaskan.id"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@pantaskan.official" target="_blank" rel="noopener noreferrer" class="social-link" title="TikTok @pantaskan.official"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="social-link" title="WhatsApp Official"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://shopee.co.id" target="_blank" rel="noopener noreferrer" class="social-link" title="Shopee Store"><i class="fa-solid fa-bag-shopping"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center text-md-start">
+                    <h6 class="fw-bold text-dark mb-3">Navigasi Utama</h6>
+                    <ul class="list-unstyled small mb-0 d-flex flex-column gap-2">
+                        <li><a href="#" onclick="switchTab('home')">Home</a></li>
+                        <li><a href="#" onclick="switchTab('about')">Tentang Kami</a></li>
+                        <li><a href="#" onclick="switchTab('katalog')">Katalog Outfit</a></li>
+                        <li><a href="#" onclick="switchTab('testi')">Testimonial</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-5 text-center text-md-start">
+                    <h6 class="fw-bold text-dark mb-3">Identitas Bisnis & Kontak</h6>
+                    <p class="text-muted small mb-1"><i class="fa-solid fa-envelope me-2"></i> halo@pantaskan.id</p>
+                    <p class="text-muted small mb-1"><i class="fa-brands fa-whatsapp me-2"></i> +62 812-3456-7890</p>
+                    <p class="text-muted small mb-0"><i class="fa-solid fa-location-dot me-2"></i> Jakarta / Surakarta, Indonesia</p>
+                </div>
+            </div>
+            <hr class="my-4 border-color">
+            <div class="row align-items-center gy-2">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted small mb-0">Hak Cipta Dilindungi &copy; 2026 <strong>Pantaskan</strong>. Official Shopee Affiliate Partner.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="text-muted mb-0" style="font-size:0.75rem;">Tetap Pantas, Tetap Percaya Diri di Setiap Langkah.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Data Produk Katalog (8 Variasi Lengkap)
+        const productsData = [
+            {
+                id: 1,
+                title: "Kuliah to Hangout Set - Blue Shirt & Denim",
+                categoryLabel: "Kuliah",
+                price: "Rp120.000 - Rp180.000",
+                image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
+                shopeeUrl: "https://shopee.co.id",
+                waMessage: "Halo%20Stylist,%20aku%20mau%20tanya%20padu%20padan%20Blue%20Shirt%20Denim"
+            },
+            {
+                id: 2,
+                title: "Work to Cafe Outer Set - Black Blazer & Cap",
+                categoryLabel: "Work",
+                price: "Rp150.000 - Rp220.000",
+                image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+                shopeeUrl: "https://shopee.co.id",
+                waMessage: "Halo%20Stylist,%20aku%20mau%20tanya%20padu%20padan%20Black%20Blazer%20Set"
+            },
+            {
+                id: 3,
+                title: "Casual Minimalist White Tee & Dark Trousers",
+                categoryLabel: "Casual",
+                price: "Rp95.000 - Rp140.000",
+                image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&q=80",
+                shopeeUrl: "https://shopee.co.id",
+                waMessage: "Halo%20Stylist,%20aku%20mau%20tanya%20padu%20padan%20White%20Tee%20Set"
+            },
+            {
+                id: 4,
+                title: "Earth Tone Layered Oversized Cardigan",
+                categoryLabel: "Casual",
+                price: "Rp135.000 - Rp195.000",
+                image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&q=80",
+                shopeeUrl: "https://shopee.co.id",
+                waMessage: "Halo%20Stylist,%20aku%20mau%20tanya%20padu%20padan%20Earth%20Tone%20Cardigan"
+            },
+            {
+                id: 5,
+                title: "Monochrome Smart Casual Polo & Chino",
+                categoryLabel: "Work",
+                price: "Rp110.000 - Rp165.000",
+                image: "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=600&q=80",
+                shopeeUrl: "https://shopee.co.id",
+                waMessage: "Halo%20Stylist,%20aku%20mau%20tanya%20padu%20padan%20Smart%20Casual%20Polo"
+            },
+            {
+                id: 6,
+                title: "Campus Daily Oversized Linen Shirt",
+                categoryLabel: "Kuliah",
+                price: "Rp105.000 - Rp150.000",
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
+                shopeeUrl: "https://shopee.co.id",
+                waMessage: "Halo%20Stylist,%20aku%20mau%20tanya%20padu%20padan%20Linen%20Shirt"
+            },
+            {
+                id: 7,
+                title: "Weekend Hangout Utility Jacket Set",
+                categoryLabel: "Casual",
+                price: "Rp160.000 - Rp240.000",
+                image: "https://images.unsplash.com/photo-1548883354-7622d03aca27?w=600&q=80",
+                shopeeUrl: "https://shopee.co.id",
+                waMessage: "Halo%20Stylist,%20aku%20mau%20tanya%20padu%20padan%20Utility%20Jacket"
+            },
+            {
+                id: 8,
+                title: "Formal Transition Stripe Shirt & Slacks",
+                categoryLabel: "Work",
+                price: "Rp130.000 - Rp185.000",
+                image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80",
+                shopeeUrl: "https://shopee.co.id",
+                waMessage: "Halo%20Stylist,%20aku%20mau%20tanya%20padu%20padan%20Stripe%20Shirt"
+            }
+        ];
+
+        // Data Testimonial
+        const testimonialsData = [
+            {
+                type: "shopee",
+                badgeText: "Ulasan Pembelian Shopee",
+                name: "Rian D.",
+                role: "Mahasiswa Akhir (22 thn)",
+                initial: "R",
+                comment: "Beli kemeja & celana linen rekomendasi Pantaskan dari link Shopee-nya. Bahannya adem banget dipakai kuliah dari pagi, terus sorenya tinggal buka kancing atas langsung cocok buat ngopi bareng temen!"
+            },
+            {
+                type: "stylist",
+                badgeText: "Pengalaman Konsultasi Stylist",
+                name: "Siti Nurhaliza",
+                role: "First Jobber / Admin (23 thn)",
+                initial: "S",
+                comment: "Sumpah worth it banget konsultasi gratis di WA! Stylist-nya ramah, bantu pilihin blazer yang fit di badanku yang agak mungil dan ngasih saran budget yang terjangkau banget di Shopee."
+            },
+            {
+                type: "shopee",
+                badgeText: "Ulasan Pembelian Shopee",
+                name: "Dimas Anggara",
+                role: "Freelance Designer (25 thn)",
+                initial: "D",
+                comment: "Sangat membantu buat yang gak suka ribet mikirin outfit. Padu padan warnanya simpel tapi kelihatan mahal. Pembelian via Shopee Affiliate-nya juga aman dan produk sesuai ekpektasi!"
+            },
+            {
+                type: "stylist",
+                badgeText: "Pengalaman Konsultasi Stylist",
+                name: "Alya Putri",
+                role: "Mahasiswi (20 thn)",
+                initial: "A",
+                comment: "Sering bingung baju kuliah suka mati gaya, berkat saran Stylist Pantaskan jadi tau trik layering outerwear yang ga bikin gerah tapi tetep rapi!"
+            }
+        ];
+
+        // Render Card Produk
+        function createProductCard(product) {
+            return `
+                <div class="col-6 col-lg-3">
+                    <div class="card-custom h-100 d-flex flex-column">
+                        <div class="img-container">
+                            <span class="badge-affiliate"><i class="fa-solid fa-bag-shopping me-1"></i> Shopee</span>
+                            <img src="${product.image}" alt="${product.title}" loading="lazy">
+                        </div>
+                        <div class="p-3 d-flex flex-column flex-grow-1">
+                            <div class="mb-2">
+                                <span class="badge-category">${product.categoryLabel}</span>
+                            </div>
+                            <h6 class="fw-bold text-dark fs-6 mb-1 text-truncate" title="${product.title}">${product.title}</h6>
+                            <p class="text-success fw-bold small mb-3">${product.price}</p>
+                            
+                            <div class="mt-auto d-flex flex-column gap-2">
+                                <a href="${product.shopeeUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-shopee py-2 w-100">
+                                    <i class="fa-solid fa-cart-shopping me-1"></i> Beli di Shopee
+                                </a>
+                                <a href="https://wa.me/6281234567890?text=${product.waMessage}" target="_blank" rel="noopener noreferrer" class="btn btn-wa-outline py-2 w-100">
+                                    <i class="fa-brands fa-whatsapp me-1"></i> Tanya Stylist
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render Card Testimonial
+        function createTestiCard(item) {
+            const badgeClass = item.type === 'shopee' ? 'badge-shopee-review' : 'badge-stylist-review';
+            return `
+                <div class="col-md-6 col-lg-3">
+                    <div class="testi-card d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge-testi-type ${badgeClass}">
+                                <i class="${item.type === 'shopee' ? 'fa-solid fa-bag-shopping' : 'fa-brands fa-whatsapp'} me-1"></i> ${item.badgeText}
+                            </span>
+                            <div class="chat-bubble mb-3">
+                                "${item.comment}"
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 pt-2">
+                            <div class="avatar-circle">${item.initial}</div>
+                            <div>
+                                <h6 class="fw-bold mb-0 text-dark small">${item.name}</h6>
+                                <p class="text-muted extra-small mb-0" style="font-size:0.75rem;">${item.role}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Populasi Data ke Grid Home & Page
+        function loadContent() {
+            // Populate Home Katalog (Max 4 item preview)
+            const homeKatalogGrid = document.getElementById('home-katalog-grid');
+            if(homeKatalogGrid) {
+                homeKatalogGrid.innerHTML = productsData.slice(0, 4).map(createProductCard).join('');
+            }
+
+            // Populate Full Katalog
+            const fullKatalogGrid = document.getElementById('full-katalog-grid');
+            if(fullKatalogGrid) {
+                fullKatalogGrid.innerHTML = productsData.map(createProductCard).join('');
+            }
+
+            // Populate Testimonials
+            const homeTestiGrid = document.getElementById('home-testi-grid');
+            const fullTestiGrid = document.getElementById('full-testi-grid');
+            const testiHTML = testimonialsData.map(createTestiCard).join('');
+
+            if(homeTestiGrid) homeTestiGrid.innerHTML = testiHTML;
+            if(fullTestiGrid) fullTestiGrid.innerHTML = testiHTML;
+        }
+
+        // Switch Tab SPA Navigation
+        function switchTab(tabName) {
+            const pages = ['home', 'about', 'katalog', 'testi'];
+            
+            pages.forEach(page => {
+                const pageEl = document.getElementById(`page-${page}`);
+                const navEl = document.getElementById(`nav-${page}`);
+                
+                if (page === tabName) {
+                    pageEl.classList.remove('d-none');
+                    if (navEl) navEl.classList.add('active');
+                } else {
+                    pageEl.classList.add('d-none');
+                    if (navEl) navEl.classList.remove('active');
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Close navbar toggler mobile jika terbuka
+            const navbarCollapse = document.getElementById('navbarNav');
+            if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) bsCollapse.hide();
+            }
+        }
+
+        // Filter Katalog
+        function filterKatalog(category) {
+            const buttons = document.querySelectorAll('#category-filters button');
+            buttons.forEach(btn => {
+                btn.classList.remove('btn-dark');
+                btn.classList.add('btn-outline-dark');
+            });
+
+            event.target.classList.remove('btn-outline-dark');
+            event.target.classList.add('btn-dark');
+
+            const fullKatalogGrid = document.getElementById('full-katalog-grid');
+            if (!fullKatalogGrid) return;
+
+            if (category === 'all') {
+                fullKatalogGrid.innerHTML = productsData.map(createProductCard).join('');
+            } else {
+                const filtered = productsData.filter(p => p.categoryLabel === category);
+                fullKatalogGrid.innerHTML = filtered.map(createProductCard).join('');
+            }
+        }
+
+        // Init on Load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadContent();
+        });
+    </script>
+</body>
+</html>
