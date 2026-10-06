@@ -6,23 +6,28 @@
     <title>Pantaskan - Tetap Pantas di Setiap Aktivitas</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts (Plus Jakarta Sans) -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts (Playfair Display & Plus Jakarta Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* =========================================================
+           SAGE GREEN & EARTH TONE PALETTE (MATCHING LOGO & UI APP)
+           ========================================================= */
         :root {
-            --bg-body: #FAF8F5;
-            --bg-card: #FFFFFF;
-            --text-primary: #1F2421;
-            --text-muted: #6E706E;
-            --btn-dark: #202C27;
-            --btn-dark-hover: #121A17;
-            --accent-shopee: #EE4D2D;
-            --accent-wa: #25D366;
-            --border-color: #EBE8E1;
-            --price-green: #2B8A3E;
+            --bg-body: #F9F8F6;             /* Cream Warm Background */
+            --bg-card: #FFFFFF;             /* Pure White Card */
+            --primary-sage: #6B7A63;        /* Sage Green Logo Pantaskan */
+            --primary-sage-hover: #55624E;  /* Darker Sage */
+            --text-primary: #2C302E;       /* Deep Slate Text */
+            --text-muted: #6E736F;         /* Muted Gray Text */
+            --btn-dark: #6B7A63;           /* Primary Button pake Sage */
+            --btn-dark-hover: #55624E;     
+            --accent-shopee: #EE4D2D;       /* Shopee Red */
+            --accent-wa: #25D366;           /* WA Green */
+            --border-color: #E6E3DC;        /* Warm Border */
+            --price-green: #3B6E35;         /* Deep Forest Green Price */
         }
 
         body {
@@ -31,9 +36,13 @@
             color: var(--text-primary);
         }
 
+        h1, h2, h3, .brand-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
         /* Navbar Styling */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(249, 248, 246, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
         }
@@ -44,10 +53,27 @@
             margin-right: 0;
         }
 
-        .navbar-logo {
-            height: 38px;
+        .navbar-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-sage);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar-logo-icon {
             width: auto;
-            object-fit: contain;
+            max-height: 40px;
+            background-color: var(--primary-sage);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .nav-link {
@@ -61,7 +87,7 @@
         }
 
         .nav-link:hover, .nav-link.active {
-            color: var(--text-primary) !important;
+            color: var(--primary-sage) !important;
             background-color: #EFECE6;
             font-weight: 600;
         }
@@ -69,14 +95,15 @@
         /* Hero Section */
         .hero-section {
             padding: 70px 0 50px 0;
-            background: linear-gradient(180deg, #F3EFEA 0%, var(--bg-body) 100%);
+            background: linear-gradient(180deg, #EFECE6 0%, var(--bg-body) 100%);
         }
 
         .hero-title {
-            font-weight: 800;
-            font-size: 2.5rem;
-            letter-spacing: -0.8px;
+            font-weight: 700;
+            font-size: 2.75rem;
+            letter-spacing: -0.5px;
             line-height: 1.25;
+            color: var(--text-primary);
         }
 
         .hero-subtitle {
@@ -88,15 +115,15 @@
         }
 
         .btn-custom-dark {
-            background-color: var(--btn-dark);
+            background-color: var(--primary-sage);
             color: #FFFFFF !important;
             font-weight: 600;
             font-size: 0.88rem;
-            padding: 10px 22px;
-            border-radius: 8px;
+            padding: 10px 24px;
+            border-radius: 50px;
             border: none;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(107, 122, 99, 0.2);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -104,7 +131,7 @@
         }
 
         .btn-custom-dark:hover {
-            background-color: var(--btn-dark-hover);
+            background-color: var(--primary-sage-hover);
             color: #FFFFFF !important;
             transform: translateY(-2px);
         }
@@ -112,7 +139,7 @@
         /* Card Product Styling */
         .card-custom {
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 16px;
             background: var(--bg-card);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             overflow: hidden;
@@ -147,8 +174,8 @@
             color: white;
             font-size: 0.68rem;
             font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 4px;
+            padding: 3px 8px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             gap: 4px;
@@ -156,8 +183,8 @@
         }
 
         .badge-category {
-            background-color: #F0ECE1;
-            color: #555;
+            background-color: #EFECE6;
+            color: var(--text-muted);
             font-weight: 600;
             font-size: 0.72rem;
             padding: 3px 10px;
@@ -190,7 +217,7 @@
             color: white !important;
             font-weight: 700;
             border: none;
-            border-radius: 8px;
+            border-radius: 50px;
             font-size: 0.8rem;
             transition: background-color 0.2s;
             text-decoration: none;
@@ -207,11 +234,11 @@
         }
 
         .btn-wa-outline {
-            border: 1px solid #128C7E;
-            color: #128C7E !important;
+            border: 1px solid var(--primary-sage);
+            color: var(--primary-sage) !important;
             font-weight: 600;
             font-size: 0.78rem;
-            border-radius: 8px;
+            border-radius: 50px;
             background: #FFFFFF;
             text-decoration: none;
             display: flex;
@@ -224,59 +251,14 @@
         }
         
         .btn-wa-outline:hover {
-            background-color: #E7F8EE;
+            background-color: #EAF2E8;
         }
 
-        /* Testimonial Horizontal Scroll/Slider Styling */
-        .testi-scroll-container {
-            display: flex;
-            gap: 16px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding-bottom: 12px;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .testi-scroll-container::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .testi-scroll-container::-webkit-scrollbar-track {
-            background: #EFECE6;
-            border-radius: 10px;
-        }
-
-        .testi-scroll-container::-webkit-scrollbar-thumb {
-            background: #C5C0B6;
-            border-radius: 10px;
-        }
-
-        .testi-card-item {
-            flex: 0 0 calc(33.333% - 11px);
-            min-width: 280px;
-        }
-
-        @media (max-width: 991px) {
-            .testi-card-item {
-                flex: 0 0 calc(50% - 8px);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .testi-card-item {
-                flex: 0 0 85%;
-            }
-        }
-
-        .section-title-icon {
-            font-size: 1.1rem;
-            margin-right: 6px;
-        }
-
+        /* Testimonial Cards & Grid */
         .testi-card {
             background: #FFFFFF;
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 20px;
             height: 100%;
             display: flex;
@@ -292,8 +274,8 @@
             color: #EE4D2D;
             font-size: 0.7rem;
             font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
             margin-bottom: 12px;
         }
 
@@ -301,44 +283,28 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            background-color: #E7F8EE;
-            color: #128C7E;
+            background-color: #EAF2E8;
+            color: var(--primary-sage);
             font-size: 0.7rem;
             font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
             margin-bottom: 12px;
         }
 
-        .chat-bubble-shopee-box {
-            background-color: #FDF0ED;
-            border-left: 3px solid #EE4D2D;
-            border-radius: 6px;
-            padding: 12px;
-            font-size: 0.82rem;
-            color: #333;
+        .chat-bubble-shopee-box, .chat-bubble-wa-box {
+            font-size: 0.83rem;
+            color: var(--text-primary);
             line-height: 1.5;
             margin-bottom: 20px;
-            min-height: 90px;
-        }
-
-        .chat-bubble-wa-box {
-            background-color: #E7F8EE;
-            border-left: 3px solid #25D366;
-            border-radius: 6px;
-            padding: 12px;
-            font-size: 0.82rem;
-            color: #333;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            min-height: 90px;
+            min-height: 80px;
         }
 
         .avatar-circle {
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background-color: #2F3E37;
+            background-color: var(--primary-sage);
             color: white;
             display: flex;
             align-items: center;
@@ -348,7 +314,7 @@
             font-size: 0.85rem;
         }
 
-        /* Feature & CTA */
+        /* Feature Box */
         .feature-box {
             background: #FFFFFF;
             border: 1px solid var(--border-color);
@@ -360,9 +326,9 @@
         .feature-icon {
             width: 44px;
             height: 44px;
-            background: #F3EFEA;
-            color: var(--btn-dark);
-            border-radius: 10px;
+            background: #EFECE6;
+            color: var(--primary-sage);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -372,12 +338,12 @@
 
         .cta-banner {
             background-color: #EFECE6;
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 36px 20px;
         }
 
         .app-feature-box {
-            background-color: #FAF8F5;
+            background-color: #F4F1EC;
             border-radius: 20px;
             padding: 40px 30px;
             border: 1px solid var(--border-color);
@@ -388,11 +354,11 @@
             position: fixed;
             bottom: 24px;
             right: 24px;
-            background-color: var(--accent-wa);
+            background-color: var(--primary-sage);
             color: white !important;
-            padding: 12px 20px;
+            padding: 12px 22px;
             border-radius: 30px;
-            box-shadow: 0 8px 16px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 8px 16px rgba(107, 122, 99, 0.3);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -405,6 +371,7 @@
 
         .floating-wa:hover {
             transform: scale(1.05);
+            background-color: var(--primary-sage-hover);
         }
 
         /* Footer */
@@ -414,14 +381,14 @@
             transition: color 0.2s;
         }
         footer a:hover {
-            color: var(--text-primary);
+            color: var(--primary-sage);
         }
 
         .social-link {
             width: 34px;
             height: 34px;
             border-radius: 50%;
-            background-color: #F4F1EA;
+            background-color: #EFECE6;
             color: var(--text-primary) !important;
             display: inline-flex;
             align-items: center;
@@ -431,7 +398,7 @@
         }
 
         .social-link:hover {
-            background-color: var(--btn-dark);
+            background-color: var(--primary-sage);
             color: #FFFFFF !important;
         }
 
@@ -442,30 +409,32 @@
 </head>
 <body>
 
-    <!-- NAVBAR (NAVBAR HOME DIHAPUS, BRAND/LOGO MEMBUKA HOMEPAGE) -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container">
-            <a class="navbar-brand" onclick="switchTab('home')" title="Kembali ke Homepage">
-                <img src="https://via.placeholder.com/160x50?text=Pantaskan+Logo" alt="Pantaskan Logo" class="navbar-logo">
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto gap-2 mt-3 mt-lg-0">
-                    <li class="nav-item">
-                        <button class="nav-link border-0 bg-transparent" id="nav-about" onclick="switchTab('about')">Tentang Kami</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link border-0 bg-transparent" id="nav-katalog" onclick="switchTab('katalog')">Katalog</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link border-0 bg-transparent" id="nav-testi" onclick="switchTab('testi')">Testimonial</button>
-                    </li>
-                </ul>
-            </div>
+    <div class="container">
+        <!-- BARIS LOGO YANG SUDAH DIPERBAIKI -->
+        <a class="navbar-brand d-flex align-items-center" onclick="switchTab('home')" title="Kembali ke Homepage">
+            <img src="Asset/logo.png" alt="Pantaskan Logo" class="navbar-logo" style="max-height: 40px; width: auto; object-fit: contain;">
+        </a>
+        
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-2 mt-3 mt-lg-0">
+                <li class="nav-item">
+                    <button class="nav-link border-0 bg-transparent" id="nav-about" onclick="switchTab('about')">Tentang Kami</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link border-0 bg-transparent" id="nav-katalog" onclick="switchTab('katalog')">Katalog</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link border-0 bg-transparent" id="nav-testi" onclick="switchTab('testi')">Testimonial</button>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- HALAMAN: HOME -->
     <div id="page-home">
@@ -480,22 +449,22 @@
                         </p>
                         <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
                             <button class="btn btn-custom-dark" onclick="switchTab('katalog')"><i class="fa-solid fa-border-all me-2"></i> Jelajahi Katalog</button>
-                            <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo%20Stylist%20Pantaskan,%20aku%20mau%20konsultasi%20style%20dulu%20dong!" target="_blank" rel="noopener noreferrer" class="btn btn-custom-dark"><i class="fa-brands fa-whatsapp me-2"></i> Konsultasi Stylist Gratis</a>
+                            <a href="https://api.whatsapp.com/send?phone=6285290956001&text=Halo%20Stylist%20Pantaskan,%20aku%20mau%20konsultasi%20style%20dulu%20dong!" target="_blank" rel="noopener noreferrer" class="btn btn-custom-dark"><i class="fa-brands fa-whatsapp me-2"></i> Konsultasi Stylist Gratis</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION KURASI REKOMENDASI OUTFIT (DIUBAH MENJADI 4 CARD) -->
+        <!-- SECTION KURASI REKOMENDASI OUTFIT (4 CARD) -->
         <section class="py-5">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-end mb-4">
                     <div>
-                        <h3 class="fw-bold fs-3 mb-1">Kurasi Rekomendasi Outfit</h3>
+                        <h3 class="fw-bold fs-3 mb-1 brand-heading">Kurasi Rekomendasi Outfit</h3>
                         <p class="text-muted small mb-0">Rekomendasi set busana favorit untuk efisiensi dan mobilitas harian</p>
                     </div>
-                    <button class="btn btn-link text-decoration-none text-dark fw-semibold p-0 small" onclick="switchTab('katalog')">Lihat Semua Katalog <i class="fa-solid fa-arrow-right ms-1"></i></button>
+                    <button class="btn btn-link text-decoration-none fw-semibold p-0 small" style="color: var(--primary-sage);" onclick="switchTab('katalog')">Lihat Semua Katalog <i class="fa-solid fa-arrow-right ms-1"></i></button>
                 </div>
                 <div class="row g-3 g-md-4" id="home-katalog-grid"></div>
             </div>
@@ -504,31 +473,31 @@
         <!-- SECTION APLIKASI & ULASAN PENGGUNA -->
         <section class="py-5 bg-white border-top">
             <div class="container">
-                <!-- Solusi Kemudahan App Banner -->
+                <!-- App Banner -->
                 <div class="app-feature-box mb-5">
                     <div class="row align-items-center gy-4">
                         <div class="col-lg-7">
                             <span class="text-muted small fw-semibold text-uppercase mb-2 d-block">Aplikasi Mobile Pantaskan</span>
-                            <h2 class="fw-bold fs-2 mb-3">Solusi Kemudahan Padu Padan Outfit di Genggaman</h2>
+                            <h2 class="fw-bold fs-2 mb-3 brand-heading">Solusi Kemudahan Padu Padan Outfit di Genggaman</h2>
                             <p class="text-muted small mb-4" style="line-height: 1.6;">
                                 Integrasi sempurna antara aplikasi dan website. Nikmati kemudahan rekomendasi Virtual Stylist, simpan katalog favorit, serta tautan checkout Shopee resmi tanpa perlu berganti platform.
                             </p>
                             <ul class="list-unstyled small mb-4">
-                                <li class="mb-2"><i class="fa-solid fa-circle-check text-success me-2"></i><strong>Rekomendasi AI Stylist Sesuai Agenda Harian</strong></li>
-                                <li><i class="fa-solid fa-circle-check text-success me-2"></i><strong>Konsultasi Live WhatsApp Langsung dengan Curator</strong></li>
+                                <li class="mb-2"><i class="fa-solid fa-circle-check me-2" style="color: var(--primary-sage);"></i><strong>Rekomendasi AI Stylist Sesuai Agenda Harian</strong></li>
+                                <li><i class="fa-solid fa-circle-check me-2" style="color: var(--primary-sage);"></i><strong>Konsultasi Live WhatsApp Langsung dengan Curator</strong></li>
                             </ul>
-                            <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo%20Pantaskan,%20mau%20tanya%20info%20aplikasi%20mobile!" target="_blank" rel="noopener noreferrer" class="btn btn-custom-dark">
+                            <a href="https://api.whatsapp.com/send?phone=6285290956001&text=Halo%20Pantaskan,%20mau%20tanya%20info%20aplikasi%20mobile!" target="_blank" rel="noopener noreferrer" class="btn btn-custom-dark">
                                 <i class="fa-brands fa-whatsapp me-2"></i> Tanya Stylist via WhatsApp
                             </a>
                         </div>
                         <div class="col-lg-5 text-center">
-                            <div class="bg-dark text-white p-4 rounded-4 shadow-sm mx-auto" style="max-width: 320px; border: 4px solid #333;">
+                            <div class="p-4 rounded-4 shadow-sm mx-auto" style="max-width: 320px; background-color: var(--primary-sage); color: white;">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="fw-bold small">Pantaskan App</span>
-                                    <span class="badge bg-secondary" style="font-size:0.6rem;">v2.4 Live</span>
+                                    <span class="fw-bold small brand-heading">Pantaskan App</span>
+                                    <span class="badge bg-light text-dark" style="font-size:0.6rem;">v2.4 Live</span>
                                 </div>
                                 <div class="bg-white text-dark p-3 rounded-3 text-start mb-2">
-                                    <small class="text-warning fw-bold d-block">⚡ Outfit Recommendation AI</small>
+                                    <small class="fw-bold d-block" style="color: var(--primary-sage);">⚡ Outfit Recommendation AI</small>
                                     <span style="font-size:0.75rem;" class="text-muted">Kuliah Pagi -> Cafe Afternoon</span>
                                 </div>
                                 <div class="bg-white text-dark p-3 rounded-3 text-start">
@@ -540,13 +509,13 @@
                     </div>
                 </div>
 
-                <!-- Ulasan Pengguna & Pengalaman Konsultasi (SLIDER CARD DIGESER) -->
-                <div class="text-center mb-5">
-                    <h3 class="fw-bold fs-3 mb-2">Ulasan Toko & Pengalaman Diskusi Stylist</h3>
+                <!-- HOMEPAGE TESTIMONIAL: 4 CARD HORIZONTAL GRID -->
+                <div class="text-center mb-4">
+                    <h3 class="fw-bold fs-3 mb-2 brand-heading">Ulasan Toko & Pengalaman Diskusi Stylist</h3>
                     <p class="text-muted small">Kumpulan impresi konsumen yang membeli via Shopee maupun yang berkonsultasi langsung dengan Stylist</p>
                 </div>
                 
-                <div id="home-testi-wrapper"></div>
+                <div class="row g-3 g-md-4" id="home-testi-grid"></div>
             </div>
         </section>
     </div>
@@ -557,7 +526,7 @@
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-9">
                     <span class="text-muted small fw-semibold d-block mb-2">Mengenal Pantaskan</span>
-                    <h2 class="fw-bold fs-2 mb-3">Membantu Kamu Tampil "Pantas" di Setiap Situasi</h2>
+                    <h2 class="fw-bold fs-2 mb-3 brand-heading">Membantu Kamu Tampil "Pantas" di Setiap Situasi</h2>
                     <p class="text-muted small leading-relaxed mx-auto" style="max-width: 760px; line-height: 1.7;">
                         Pantaskan lahir dari keresahan anak muda, mahasiswa, hingga <em>first-jobber</em> yang punya mobilitas padat. Dari kelas pagi, kerja di kafe, hingga <em>hangout</em> malam hari—kamu tak perlu bingung bawa baju ganti berlebihan. Kami mengurasi outfit transisi yang serbaguna, stylish, ramah kantong, dan terintegrasi langsung dengan link pembelian Shopee Affiliate resmi.
                     </p>
@@ -589,9 +558,9 @@
             </div>
 
             <div class="cta-banner text-center my-4">
-                <h4 class="fw-bold fs-4 mb-2">Bingung Padu Padan Outfit Hari Ini?</h4>
+                <h4 class="fw-bold fs-4 mb-2 brand-heading">Bingung Padu Padan Outfit Hari Ini?</h4>
                 <p class="text-muted small mb-4">Tim kurator kami siap membantu merancang gaya yang cocok untuk agendamu harian.</p>
-                <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo%20Stylist%20Pantaskan,%20mau%20diskusi%20outfit%20dong!" target="_blank" rel="noopener noreferrer" class="btn btn-custom-dark">
+                <a href="https://api.whatsapp.com/send?phone=6285290956001&text=Halo%20Stylist%20Pantaskan,%20mau%20diskusi%20outfit%20dong!" target="_blank" rel="noopener noreferrer" class="btn btn-custom-dark">
                     <i class="fa-brands fa-whatsapp me-2"></i> Ngobrol dengan Stylist Pantaskan
                 </a>
             </div>
@@ -602,17 +571,17 @@
     <div id="page-katalog" class="d-none py-5">
         <div class="container">
             <div class="text-center mb-4">
-                <h2 class="fw-bold fs-2 mb-2">Katalog & Lookbook Lengkap</h2>
+                <h2 class="fw-bold fs-2 mb-2 brand-heading">Katalog & Lookbook Lengkap</h2>
                 <p class="text-muted small">Koleksi variasi busana transisi kurasi lengkap berdasarkan kategori pakaian</p>
             </div>
 
-            <!-- Filter Kategori Jenis Pakaian -->
+            <!-- Filter Kategori -->
             <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
-                <button class="btn btn-sm btn-dark px-3 rounded-pill filter-btn active" onclick="filterKatalog('all', this)">Semua Jenis</button>
-                <button class="btn btn-sm btn-outline-dark px-3 rounded-pill filter-btn" onclick="filterKatalog('Atasan', this)">Atasan (Shirt & Tee)</button>
-                <button class="btn btn-sm btn-outline-dark px-3 rounded-pill filter-btn" onclick="filterKatalog('Bawahan', this)">Bawahan (Pants & Denim)</button>
-                <button class="btn btn-sm btn-outline-dark px-3 rounded-pill filter-btn" onclick="filterKatalog('Outer', this)">Outer & Layering</button>
-                <button class="btn btn-sm btn-outline-dark px-3 rounded-pill filter-btn" onclick="filterKatalog('Set', this)">Set / One-Set</button>
+                <button class="btn btn-sm btn-dark px-3 rounded-pill filter-btn active" style="background-color: var(--primary-sage); border-color: var(--primary-sage);" onclick="filterKatalog('all', this)">Semua Jenis</button>
+                <button class="btn btn-sm btn-outline-dark px-3 rounded-pill filter-btn" onclick="filterKatalog('Atasan', this)">Atasan</button>
+                <button class="btn btn-sm btn-outline-dark px-3 rounded-pill filter-btn" onclick="filterKatalog('Bawahan', this)">Bawahan</button>
+                <button class="btn btn-sm btn-outline-dark px-3 rounded-pill filter-btn" onclick="filterKatalog(['Outer', 'Aksesoris'], this)">Outer & Aksesoris</button>
+                <button class="btn btn-sm btn-outline-dark px-3 rounded-pill filter-btn" onclick="filterKatalog('Alas Kaki', this)">Alas Kaki</button>
             </div>
 
             <!-- GRID PRODUK KATALOG (100 Item) -->
@@ -620,41 +589,57 @@
         </div>
     </div>
 
-    <!-- HALAMAN: TESTIMONIAL (SLIDER GESER DENGAN CARD DENGAN DISPLAY 3 CARD DIBAGI 5-5) -->
+    <!-- HALAMAN: TESTIMONIAL (SPLIT SECTION ULASAN SHOPEE & STYLIST) -->
     <div id="page-testi" class="d-none py-5">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="fw-bold fs-2 mb-2">Ulasan Toko & Pengalaman Diskusi Stylist</h2>
-                <p class="text-muted small">Kumpulan impresi dari 10 konsumen yang membeli via Shopee maupun yang berkonsultasi langsung dengan Stylist (Geser ke samping untuk melihat ulasan lain)</p>
+                <h2 class="fw-bold fs-2 mb-2 brand-heading">Ulasan Toko & Pengalaman Diskusi Stylist</h2>
+                <p class="text-muted small">Kumpulan impresi dari 10 konsumen yang membeli via Shopee maupun yang berkonsultasi langsung dengan Stylist</p>
             </div>
 
-            <div id="full-testi-wrapper"></div>
+            <!-- SECTION 1: ULASAN TOKO SHOPEE -->
+            <div class="mb-5">
+                <h4 class="fw-bold fs-5 mb-3 brand-heading" style="color: var(--primary-sage);">
+                    <i class="fa-solid fa-bag-shopping text-danger me-2"></i> Ulasan Toko Shopee (5 Ulasan)
+                </h4>
+                <div class="row g-3 g-md-4" id="shopee-testi-grid"></div>
+            </div>
+
+            <!-- SECTION 2: DISKUSI STYLIST WA -->
+            <div>
+                <h4 class="fw-bold fs-5 mb-3 brand-heading" style="color: var(--primary-sage);">
+                    <i class="fa-brands fa-whatsapp text-success me-2"></i> Pengalaman Diskusi Stylist (5 Ulasan)
+                </h4>
+                <div class="row g-3 g-md-4" id="stylist-testi-grid"></div>
+            </div>
         </div>
     </div>
 
     <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo%20Stylist%20Pantaskan,%20aku%20mau%20tanya%20padu%20padan%20outfit!" target="_blank" rel="noopener noreferrer" class="floating-wa">
+    <a href="https://api.whatsapp.com/send?phone=6285290956001&text=Halo%20Stylist%20Pantaskan,%20aku%20mau%20tanya%20padu%20padan%20outfit!" target="_blank" rel="noopener noreferrer" class="floating-wa">
         <i class="fa-brands fa-whatsapp fs-5"></i>
         <span>Konsultasi Style</span>
     </a>
 
-    <!-- FOOTER LENGKAP (TAMBAHAN SOCIAL MEDIA FACEBOOK) -->
+    <!-- FOOTER -->
     <footer class="py-5 mt-5 border-top bg-white">
         <div class="container">
             <div class="row gy-4 mb-4">
                 <div class="col-md-5 text-center text-md-start">
                     <a onclick="switchTab('home')" class="d-inline-block mb-3 cursor-pointer" title="Kembali ke Homepage">
-                        <img src="https://via.placeholder.com/160x50?text=Pantaskan+Logo" alt="Pantaskan Logo" class="navbar-logo">
+                        <div class="navbar-logo-text">
+                            <span class="navbar-logo-icon">P</span> Pantaskan
+                        </div>
                     </a>
                     <p class="text-muted small mb-3" style="max-width: 360px; font-size: 0.82rem; line-height:1.6;">
                         Tetap Pantas di Setiap Aktivitas. Platform kurasi padu padan outfit transisi harian terintegrasi Shopee Affiliate.
                     </p>
                     <div class="d-flex justify-content-center justify-content-md-start gap-2">
                         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://api.whatsapp.com/send?phone=6281234567890" target="_blank" rel="noopener noreferrer" class="social-link" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="https://shopee.co.id" target="_blank" rel="noopener noreferrer" class="social-link" title="Shopee Store"><i class="fa-solid fa-bag-shopping"></i></a>
+                        <a href="https://www.instagram.com/pantaskan.project/" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@pantaskan.project" target="_blank" rel="noopener noreferrer" class="social-link" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=6285290956001" target="_blank" rel="noopener noreferrer" class="social-link" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://mycollection.shop/collectionverooo" target="_blank" rel="noopener noreferrer" class="social-link" title="Shopee Store"><i class="fa-solid fa-bag-shopping"></i></a>
                     </div>
                 </div>
 
@@ -672,7 +657,7 @@
                     <h6 class="fw-bold text-dark mb-3 small">Identitas Bisnis & Kontak</h6>
                     <p class="text-muted small mb-2" style="font-size:0.85rem;"><i class="fa-solid fa-envelope me-2"></i> halo@pantaskan.id</p>
                     <p class="text-muted small mb-2" style="font-size:0.85rem;"><i class="fa-brands fa-whatsapp me-2"></i> +62 812-3456-7890</p>
-                    <p class="text-muted small mb-0" style="font-size:0.85rem;"><i class="fa-solid fa-location-dot me-2"></i> Jakarta / Surakarta, Indonesia</p>
+                    <p class="text-muted small mb-0" style="font-size:0.85rem;"><i class="fa-solid fa-location-dot me-2"></i> Surakarta, Indonesia</p>
                 </div>
             </div>
 
@@ -692,110 +677,67 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        /* =========================================================
-           1. DATA PRODUK KATALOG (100 ITEM)
-           ========================================================= */
+        /* 1. DATA PRODUK KATALOG (100 ITEM) */
         const productTemplates = [
-            { title: "Kemeja Linen Transisi Oversized", cat: "Atasan", price: "Rp120.000 - Rp180.000", img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80", link: "https://shopee.co.id" },
-            { title: "Celana Chino Slim Fit Stretch", cat: "Bawahan", price: "Rp130.000 - Rp190.000", img: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&q=80", link: "https://shopee.co.id" },
-            { title: "Blazer Casual Minimalist Black", cat: "Outer", price: "Rp150.000 - Rp220.000", img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80", link: "https://shopee.co.id" },
-            { title: "Kuliah to Hangout Set - Shirt & Pants", cat: "Set", price: "Rp210.000 - Rp290.000", img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&q=80", link: "https://shopee.co.id" },
+            { title: "Tasa.id - Atasan Wanita Coquette - Blouse Korea - Ribbon Top y2k - Baju Tali", cat: "Atasan", price: "Rp68.553", img: "Asset/s2.webp", link: "https://shopee.co.id/product/342004426/27450229762?affiliate_seller_voucher_token=3Yrr9Jdp5hGMkU9DCtfrUZAjmDJiKJowaZMn9pXFKoQ8X&channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMaBRvcqdZwgRklGTWoHoxFGhRfNAexxPkhN1n8rcCO5qFEud_-aY2hsGdfUnqCpX0P0Z7lpJy6IP6_Ew8qmNpcGhlcnRleHTEgwAAAAxaZl4I0AG0T6CQgTajzx1wkrVuPzY_1Ypl_ZI3y7r16-nY9G0iu7IysoBMFZZz3quGhY3VbmUj6RamaeKqeCab4OggIi2PjRvGh5WfsHQ5D5Jabsf7xz4SblPS6pn-gA0cAiXJOMA3fYqBX9GXVpbqBhyzX7IfmYgRNdO395wV&mmp_pid=an_11363860696&uls_trackid=56qga9vs00l4&utm_campaign=id_jZYTeOcjrv&utm_content=----&utm_medium=affiliates&utm_source=an_11363860696&utm_term=fnswsnkotyxb" },
+            { title: "Sziasztok - Celana Pendek Pria Boardshort Unisex Get 3pcs Basic Polos", cat: "Bawahan", price: "Rp78.900", img: "Asset/s1.webp", link: "https://s.shopee.co.id/5q8jw658TR?share_channel_code=1" },
+            { title: "COLSIE - VIRLY TOP - Atasan Knit Wanita Korean Top Baju Knit Wanita Lengan Panjang Basic Long Sleeve", cat: "Outer", price: "Rp49.000", img: "Asset/s3.webp", link: "https://shopee.co.id/product/870871971/25282257033?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMaBRvcqdZwgRklGTWoHoxFGhRfNAexxPkhN1n8rcCO5qFEud_-aY2hsGdfUnqCpX0P0Z7lpJy6IP6_Ew8qmNpcGhlcnRleHTEgwAAAAy0xSi_Q2Prsoju7PihqjD17WIPiCzEeFO9sQd0WP19VjgQs5YPzeNapWrDd3m0jQ1VAM4LLSEyCXOkev_ItZ8RpG6-uD3G9PItz7MWDxK8GoIHO-507D3cff5G56yZJrwiOW0XJWV2BPcYfNiAYSExOMDnlkN9RAOdPa9wpZHE&mmp_pid=an_11363860696&uls_trackid=56qgar9f01rl&utm_campaign=id_IgvqTCIbrd&utm_content=----&utm_medium=affiliates&utm_source=an_11363860696&utm_term=fnsx7skrish1" },
+            { title: "Kuliah to Hangout Set - Shirt & Pants", cat: "Aksesoris", price: "Rp210.000 - Rp290.000", img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&q=80", link: "https://shopee.co.id" },
             { title: "Cardigan Knit Earth Tone Unisex", cat: "Outer", price: "Rp135.000 - Rp195.000", img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&q=80", link: "https://shopee.co.id" },
             { title: "Ankle Pants Semi Formal Navy", cat: "Bawahan", price: "Rp115.000 - Rp170.000", img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80", link: "https://shopee.co.id" },
             { title: "T-Shirt Basic Cotton Heavyweight 24s", cat: "Atasan", price: "Rp75.000 - Rp110.000", img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&q=80", link: "https://shopee.co.id" },
-            { title: "Work to Cafe Outer Set - Dark Grey", cat: "Set", price: "Rp225.000 - Rp310.000", img: "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=600&q=80", link: "https://shopee.co.id" }
+            { title: "Work to Cafe Outer Set - Dark Grey", cat: "Alas Kaki", price: "Rp225.000 - Rp310.000", img: "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=600&q=80", link: "https://shopee.co.id" }
         ];
 
         const productsData = [];
+for (let i = 1; i <= 100; i++) {
+    const template = productTemplates[(i - 1) % productTemplates.length];
+    const volNum = Math.ceil(i / productTemplates.length);
+    let titleStr = i <= productTemplates.length ? template.title : `${template.title} Vol. ${volNum}`;
 
-        for (let i = 1; i <= 100; i++) {
-            const template = productTemplates[(i - 1) % productTemplates.length];
-            const volNum = Math.ceil(i / productTemplates.length);
-            let titleStr = i <= productTemplates.length ? template.title : `${template.title} Vol. ${volNum}`;
+    // BAGIAN PENTING: Tentukan kategori otomatis pas 25 item per slot
+    let catLabel = "";
+    if (i <= 25) {
+        catLabel = "Atasan";                // ID 1-25 (25 item)
+    } else if (i <= 50) {
+        catLabel = "Bawahan";               // ID 26-50 (25 item)
+    } else if (i <= 65) {
+        catLabel = "Outer";                 // ID 51-65 (15 item Outer)
+    } else if (i <= 75) {
+        catLabel = "Aksesoris";             // ID 66-75 (10 item Aksesoris) -> Total Outer + Aksesoris = 25 item!
+    } else {
+        catLabel = "Alas Kaki";             // ID 76-100 (25 item)
+    }
 
-            productsData.push({
-                id: i,
-                title: titleStr,
-                categoryLabel: template.cat,
-                price: template.price,
-                image: template.img,
-                shopeeUrl: template.link,
-                waMessage: encodeURIComponent(`Halo Stylist Pantaskan, aku tertarik sama produk '${titleStr}' (ID: ${i}). Boleh konsultasi padu padannya?`)
-            });
-        }
+    productsData.push({
+        id: i,
+        title: titleStr,
+        categoryLabel: catLabel, // Pakai catLabel yang udah dibagikan di atas
+        price: template.price,
+        image: template.img,
+        shopeeUrl: template.link,
+        waMessage: encodeURIComponent(`Halo Stylist Pantaskan, aku tertarik sama produk '${titleStr}' (ID: ${i}). Boleh konsultasi padu padannya?`)
+    });
+}
 
-        /* =========================================================
-           2. DATA TESTIMONIAL (TOTAL 10 ORANG: 5 ULASAN TOKO & 5 STYLIST)
-           ========================================================= */
+        /* 2. DATA TESTIMONIAL */
         const storeReviews = [
-            {
-                name: "Rian D.",
-                role: "Mahasiswa Akhir (22 thn)",
-                initial: "R",
-                comment: "Beli kemeja & celana linen rekomendasi Pantaskan dari link Shopee-nya. Bahannya adem banget dipakai kuliah dari pagi, terus sorenya tinggal buka kancing atas langsung cocok buat ngopi bareng temen!"
-            },
-            {
-                name: "Dimas Anggara",
-                role: "Freelance Designer (25 thn)",
-                initial: "D",
-                comment: "Sangat membantu buat yang gak suka ribet mikirin outfit. Padu padan warnanya simpel tapi kelihatan mahal. Pembelian via Shopee aman dan produk sesuai ekspektasi!"
-            },
-            {
-                name: "Fikri H.",
-                role: "First Jobber (23 thn)",
-                initial: "F",
-                comment: "Pengiriman toko Shopee-nya dapet yang kilat. Kualitas vest outer yang dikurasi Pantaskan beneran tebal dan versatile buat ngantor sekaligus nongkrong."
-            },
-            {
-                name: "Nadia S.",
-                role: "Mahasiswi (20 thn)",
-                initial: "N",
-                comment: "Beli cardigan knit rekomendasi Pantaskan lewat Shopee. Warnanya persis kaya foto katalog, pas banget dipake iklim ruangan ber-AC!"
-            },
-            {
-                name: "Kevin Pratama",
-                role: "Corporate Staff (24 thn)",
-                initial: "K",
-                comment: "Chino pants yang direkomendasikan bahannya lentur banget. Bawa motor dari kampus ke tempat kerja fleksibel dan tetep kelihatan rapi!"
-            }
+            { name: "Rian D.", role: "Mahasiswa Akhir (22 thn)", initial: "R", comment: "Beli kemeja & celana linen rekomendasi Pantaskan dari link Shopee-nya. Bahannya adem banget dipakai kuliah dari pagi terus lanjut nongkrong sore!" },
+            { name: "Dimas Anggara", role: "Freelance Designer (25 thn)", initial: "D", comment: "Sangat membantu buat yang gak suka ribet mikirin outfit. Padu padan warnanya simpel tapi kelihatan mahal. Pembelian via Shopee aman!" },
+            { name: "Fikri H.", role: "First Jobber (23 thn)", initial: "F", comment: "Pengiriman toko Shopee-nya kilat. Kualitas vest outer yang dikurasi Pantaskan beneran tebal dan versatile buat ngantor sekaligus nongkrong." },
+            { name: "Nadia S.", role: "Mahasiswi (20 thn)", initial: "N", comment: "Beli cardigan knit rekomendasi Pantaskan lewat Shopee. Warnanya persis kaya foto katalog, pas banget dipake iklim ruangan ber-AC!" },
+            { name: "Kevin Pratama", role: "Corporate Staff (24 thn)", initial: "K", comment: "Chino pants yang direkomendasikan bahannya lentur banget. Bawa motor dari kampus ke tempat kerja fleksibel dan tetep kelihatan rapi!" }
         ];
 
         const stylistReviews = [
-            {
-                name: "Ahmad Rizky",
-                role: "Mahasiswa (21 thn)",
-                initial: "A",
-                comment: "Sumpah worth it banget konsultasi gratis di WA! Stylist-nya ramah, bantu pilihin blazer yang fit di badanku yang agak mungil dan ngasih saran budget."
-            },
-            {
-                name: "Bagas P.",
-                role: "Content Creator (24 thn)",
-                initial: "B",
-                comment: "Sering bingung baju kuliah suka mati gaya, berkat saran Stylist Pantaskan jadi tau trik layering outerwear yang ga bikin gerah tapi tetap rapi!"
-            },
-            {
-                name: "Dita Kurnia",
-                role: "Fresh Graduate (22 thn)",
-                initial: "D",
-                comment: "Stylist fast response banget di WA. Dikasih saran padu padan warna bumi yang sesuai sama tone kulitku. Mantap rekomendasinya!"
-            },
-            {
-                name: "Eko Prasetyo",
-                role: "Junior Developer (23 thn)",
-                initial: "E",
-                comment: "Konsultasi jam 10 malam tetep dilayani dengan ramah. Dikasih 3 opsi alternatif outfit transisi kuliah-ke-kafe yang sesuai kantong mahasiswa."
-            },
-            {
-                name: "Siti Rahma",
-                role: "Mahasiswi (21 thn)",
-                initial: "S",
-                comment: "Rekomendasi dari stylist-nya pas banget sama selera earth tone aku. Dikasih link Shopee yang langsung diskon pula. Recommended!"
-            }
+            { name: "Ahmad Rizky", role: "Mahasiswa (21 thn)", initial: "A", comment: "Sumpah worth it banget konsultasi gratis di WA! Stylist-nya ramah, bantu pilihin blazer yang fit di badanku dan ngasih saran budget." },
+            { name: "Bagas P.", role: "Content Creator (24 thn)", initial: "B", comment: "Sering bingung baju kuliah suka mati gaya, berkat saran Stylist Pantaskan jadi tau trik layering outerwear yang gak bikin gerah!" },
+            { name: "Dita Kurnia", role: "Fresh Graduate (22 thn)", initial: "D", comment: "Stylist fast response banget di WA. Dikasih saran padu padan warna bumi yang sesuai sama tone kulitku. Mantap rekomendasinya!" },
+            { name: "Eko Prasetyo", role: "Junior Developer (23 thn)", initial: "E", comment: "Konsultasi jam 10 malam tetep dilayani dengan ramah. Dikasih 3 opsi alternatif outfit transisi kuliah-ke-kafe yang sesuai kantong." },
+            { name: "Siti Rahma", role: "Mahasiswi (21 thn)", initial: "S", comment: "Rekomendasi dari stylist-nya pas banget sama selera earth tone aku. Dikasih link Shopee yang langsung diskon pula. Recommended!" }
         ];
 
-        /* =========================================================
-           3. RENDER FUNCTIONS
-           ========================================================= */
+        /* 3. RENDER FUNCTIONS */
         function createProductCard(p) {
             return `
                 <div class="col-6 col-md-4 col-lg-3">
@@ -816,7 +758,7 @@
                                 <a href="${p.shopeeUrl}" target="_blank" rel="noopener noreferrer" class="btn-shopee">
                                     <i class="fa-solid fa-cart-shopping"></i> Beli di Shopee
                                 </a>
-                                <a href="https://api.whatsapp.com/send?phone=6281234567890&text=${p.waMessage}" target="_blank" rel="noopener noreferrer" class="btn-wa-outline">
+                                <a href="https://api.whatsapp.com/send?phone=6285290956001&text=${p.waMessage}" target="_blank" rel="noopener noreferrer" class="btn-wa-outline">
                                     <i class="fa-brands fa-whatsapp"></i> Tanya Stylist
                                 </a>
                             </div>
@@ -826,142 +768,108 @@
             `;
         }
 
-        // Formatter Testimoni Slider/Scroll Kesamping (3 Card Display Utama, 5 Card Total)
-        function renderTestimonialsLayout() {
+        function createTestiCard(item, type) {
+            const isShopee = type === 'shopee';
             return `
-                <!-- SECTION 1: ULASAN TOKO (5 Orang - Slider Kesamping) -->
-                <div class="mb-5">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h4 class="fw-bold fs-5 mb-0 text-dark"><i class="fa-solid fa-bag-shopping text-danger section-title-icon"></i> Ulasan Toko (5 Ulasan)</h4>
-                        <span class="text-muted small"><i class="fa-solid fa-arrows-left-right me-1"></i> Geser ke samping</span>
-                    </div>
-                    <div class="testi-scroll-container">
-                        ${storeReviews.map(item => `
-                            <div class="testi-card-item">
-                                <div class="testi-card">
-                                    <div>
-                                        <span class="tag-testi-shopee"><i class="fa-solid fa-bag-shopping"></i> Ulasan Pembelian</span>
-                                        <div class="chat-bubble-shopee-box">
-                                            "${item.comment}"
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="avatar-circle">${item.initial}</div>
-                                        <div>
-                                            <h6 class="fw-bold mb-0 small text-dark">${item.name}</h6>
-                                            <span class="text-muted" style="font-size:0.72rem;">${item.role}</span>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="testi-card">
+                        <div>
+                            <span class="${isShopee ? 'tag-testi-shopee' : 'tag-testi-wa'}">
+                                <i class="${isShopee ? 'fa-solid fa-bag-shopping' : 'fa-brands fa-whatsapp'}"></i> 
+                                ${isShopee ? 'Ulasan Shopee' : 'Diskusi Stylist'}
+                            </span>
+                            <p class="${isShopee ? 'chat-bubble-shopee-box' : 'chat-bubble-wa-box'}">"${item.comment}"</p>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="avatar-circle">${item.initial}</div>
+                            <div>
+                                <h6 class="fw-bold mb-0 small text-dark">${item.name}</h6>
+                                <span class="text-muted" style="font-size:0.72rem;">${item.role}</span>
                             </div>
-                        `).join("")}
-                    </div>
-                </div>
-
-                <!-- SECTION 2: PENGALAMAN DISKUSI STYLIST (5 Orang - Slider Kesamping) -->
-                <div>
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h4 class="fw-bold fs-5 mb-0 text-dark"><i class="fa-brands fa-whatsapp text-success section-title-icon"></i> Pengalaman Diskusi Stylist (5 Ulasan)</h4>
-                        <span class="text-muted small"><i class="fa-solid fa-arrows-left-right me-1"></i> Geser ke samping</span>
-                    </div>
-                    <div class="testi-scroll-container">
-                        ${stylistReviews.map(item => `
-                            <div class="testi-card-item">
-                                <div class="testi-card">
-                                    <div>
-                                        <span class="tag-testi-wa"><i class="fa-brands fa-whatsapp"></i> Pengalaman Stylist</span>
-                                        <div class="chat-bubble-wa-box">
-                                            "${item.comment}"
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="avatar-circle">${item.initial}</div>
-                                        <div>
-                                            <h6 class="fw-bold mb-0 small text-dark">${item.name}</h6>
-                                            <span class="text-muted" style="font-size:0.72rem;">${item.role}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        `).join("")}
+                        </div>
                     </div>
                 </div>
             `;
         }
 
         function renderAll() {
-            // Home Catalogue Preview (DISESUAIKAN CUMA 4 CARD)
+            // Home Catalogue Preview (4 Cards)
             const homeGrid = document.getElementById("home-katalog-grid");
-            if (homeGrid) {
-                homeGrid.innerHTML = productsData.slice(0, 4).map(createProductCard).join("");
-            }
+            if (homeGrid) homeGrid.innerHTML = productsData.slice(0, 4).map(createProductCard).join("");
 
-            // Home Testimonials
-            const homeTestiWrapper = document.getElementById("home-testi-wrapper");
-            if (homeTestiWrapper) {
-                homeTestiWrapper.innerHTML = renderTestimonialsLayout();
+            // Home Testimonials Grid (4 Cards Horizontal)
+            const homeTestiGrid = document.getElementById("home-testi-grid");
+            if (homeTestiGrid) {
+                const combined = [
+                    { ...storeReviews[0], type: 'shopee' },
+                    { ...stylistReviews[0], type: 'stylist' },
+                    { ...storeReviews[1], type: 'shopee' },
+                    { ...stylistReviews[1], type: 'stylist' }
+                ];
+                homeTestiGrid.innerHTML = combined.map(item => createTestiCard(item, item.type)).join("");
             }
 
             // Full Catalogue Page (100 Items)
             const fullGrid = document.getElementById("full-katalog-grid");
-            if (fullGrid) {
-                fullGrid.innerHTML = productsData.map(createProductCard).join("");
-            }
+            if (fullGrid) fullGrid.innerHTML = productsData.map(createProductCard).join("");
 
-            // Full Testimonials Page
-            const fullTestiWrapper = document.getElementById("full-testi-wrapper");
-            if (fullTestiWrapper) {
-                fullTestiWrapper.innerHTML = renderTestimonialsLayout();
-            }
+            // Split Testimonials Page
+            const shopeeGrid = document.getElementById("shopee-testi-grid");
+            const stylistGrid = document.getElementById("stylist-testi-grid");
+
+            if (shopeeGrid) shopeeGrid.innerHTML = storeReviews.map(item => createTestiCard(item, 'shopee')).join("");
+            if (stylistGrid) stylistGrid.innerHTML = stylistReviews.map(item => createTestiCard(item, 'stylist')).join("");
         }
 
-        /* =========================================================
-           4. NAVIGATION & INTERACTIONS
-           ========================================================= */
+        /* 4. NAVIGATION & INTERACTIONS */
         function switchTab(pageId) {
             const pages = ["home", "about", "katalog", "testi"];
             pages.forEach(p => {
                 const pageEl = document.getElementById(`page-${p}`);
                 const navEl = document.getElementById(`nav-${p}`);
                 if (pageEl) {
-                    if (p === pageId) {
-                        pageEl.classList.remove("d-none");
-                    } else {
-                        pageEl.classList.add("d-none");
-                    }
+                    if (p === pageId) pageEl.classList.remove("d-none");
+                    else pageEl.classList.add("d-none");
                 }
                 if (navEl) {
-                    if (p === pageId) {
-                        navEl.classList.add("active");
-                    } else {
-                        navEl.classList.remove("active");
-                    }
+                    if (p === pageId) navEl.classList.add("active");
+                    else navEl.classList.remove("active");
                 }
             });
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function filterKatalog(cat, btn) {
-            document.querySelectorAll(".filter-btn").forEach(b => {
-                b.classList.remove("btn-dark", "active");
-                b.classList.add("btn-outline-dark");
-            });
+    document.querySelectorAll(".filter-btn").forEach(b => {
+        b.classList.remove("btn-dark", "active");
+        b.style.backgroundColor = "";
+        b.style.borderColor = "";
+        b.classList.add("btn-outline-dark");
+    });
 
-            btn.classList.remove("btn-outline-dark");
-            btn.classList.add("btn-dark", "active");
+    btn.classList.remove("btn-outline-dark");
+    btn.classList.add("btn-dark", "active");
+    btn.style.backgroundColor = "var(--primary-sage)";
+    btn.style.borderColor = "var(--primary-sage)";
 
-            const fullGrid = document.getElementById("full-katalog-grid");
-            if (!fullGrid) return;
+    const fullGrid = document.getElementById("full-katalog-grid");
+    if (!fullGrid) return;
 
-            if (cat === "all") {
-                fullGrid.innerHTML = productsData.map(createProductCard).join("");
-            } else {
-                const filtered = productsData.filter(p => p.categoryLabel === cat);
-                fullGrid.innerHTML = filtered.map(createProductCard).join("");
+    if (cat === "all") {
+        fullGrid.innerHTML = productsData.map(createProductCard).join("");
+    } else {
+        const filtered = productsData.filter(p => {
+            // Jika cat adalah Array (misal: ['Outer', 'Aksesoris'])
+            if (Array.isArray(cat)) {
+                return cat.includes(p.categoryLabel);
             }
-        }
+            // Jika cat adalah string biasa
+            return p.categoryLabel === cat;
+        });
+        fullGrid.innerHTML = filtered.map(createProductCard).join("");
+    }
+}
 
-        // Initialize App
         document.addEventListener("DOMContentLoaded", renderAll);
     </script>
 </body>
