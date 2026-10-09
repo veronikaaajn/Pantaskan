@@ -15,7 +15,7 @@
     
     <style>
         :root {
-            --bg-body: #F5F3ED;             /* Warm Editorial Paper Cream */
+            --bg-body: #F4F1EA;             /* Warm Editorial Paper Cream */
             --bg-card: #FFFFFF;
             --primary-sage: #5A6952;        /* Rich Deep Sage */
             --primary-sage-hover: #465240;
@@ -23,7 +23,7 @@
             --text-muted: #666B66;
             --accent-shopee: #EE4D2D;
             --accent-wa: #25D366;
-            --border-color: #DDD8CD;        /* Editorial Fine Lines */
+            --border-color: #D8D2C4;        /* Editorial Fine Lines */
             --price-green: #2E5829;
         }
 
@@ -35,14 +35,31 @@
             position: relative;
         }
 
+        /* Ultimate Mesh Gradient & Noise Texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(90, 105, 82, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(238, 77, 45, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(216, 210, 196, 0.3) 0%, transparent 60%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+            z-index: -1;
+            pointer-events: none;
+        }
+
         h1, h2, h3, .brand-heading {
             font-family: 'Playfair Display', serif;
         }
 
         /* Editorial Navbar */
         .navbar {
-            background-color: rgba(245, 243, 237, 0.92);
-            backdrop-filter: blur(12px);
+            background-color: rgba(244, 241, 234, 0.88);
+            backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border-color);
             padding: 14px 0;
         }
@@ -66,14 +83,14 @@
 
         .nav-link:hover, .nav-link.active {
             color: var(--text-primary) !important;
-            background-color: #E8E3D5;
+            background-color: #E6E1D3;
             font-weight: 700;
         }
 
-        /* Marquee / Running Text Ala Majalah Fashion */
+        /* Marquee / Running Text */
         .marquee-container {
             background-color: var(--text-primary);
-            color: #F5F3ED;
+            color: #F4F1EA;
             padding: 10px 0;
             overflow: hidden;
             white-space: nowrap;
@@ -96,9 +113,8 @@
 
         /* Hero Section Gaya Majalah */
         .hero-section {
-            padding: 90px 0 60px 0;
+            padding: 75px 0 40px 0;
             position: relative;
-            border-bottom: 1px solid var(--border-color);
         }
 
         .hero-title {
@@ -148,26 +164,125 @@
             box-shadow: 0 8px 25px rgba(90, 105, 82, 0.3);
         }
 
+        /* Auto-Scrolling Editorial Cards Section (Bisa diklik ke IG) */
+        .creativox-slider-section {
+            padding: 20px 0 50px 0;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .creativox-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            animation: scrollCards 35s linear infinite;
+        }
+
+        .creativox-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollCards {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Kartu Berjalan */
+        .work-card {
+            width: 280px;
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--text-primary);
+        }
+
+        .work-card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .work-card-avatar {
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-sage);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .work-card-img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            background-color: #EAE5DC;
+        }
+
+        .work-card-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.35;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .work-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #EEEEEE;
+            padding-top: 10px;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
         /* Card Product Styling (Editorial Look) */
         .card-custom {
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 14px;
             background: var(--bg-card);
             transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             overflow: hidden;
             height: 100%;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
 
         .card-custom:hover {
             transform: translateY(-6px);
-            box-shadow: 0 16px 30px rgba(0,0,0,0.06);
+            box-shadow: 0 16px 30px rgba(0,0,0,0.07);
             border-color: var(--text-primary);
         }
 
         .img-container {
-            background-color: #EBE6DC;
+            background-color: #EAE5DC;
             aspect-ratio: 1/1;
             position: relative;
             overflow: hidden;
@@ -198,10 +313,11 @@
             align-items: center;
             gap: 4px;
             z-index: 2;
+            box-shadow: 0 4px 10px rgba(238, 77, 45, 0.3);
         }
 
         .badge-category {
-            background-color: #EBE6DC;
+            background-color: #EAE5DC;
             color: var(--text-muted);
             font-weight: 600;
             font-size: 0.7rem;
@@ -275,11 +391,12 @@
         }
 
         .testimonial-card {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
             border: 1px solid var(--border-color);
             border-radius: 14px;
             padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
             transition: transform 0.3s ease;
         }
         .testimonial-card:hover {
@@ -304,7 +421,8 @@
         }
 
         .feature-box {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
             border: 1px solid var(--border-color);
             border-radius: 14px;
             padding: 30px 20px;
@@ -314,7 +432,7 @@
         .feature-icon {
             width: 48px;
             height: 48px;
-            background: #EBE6DC;
+            background: #EAE5DC;
             color: var(--text-primary);
             border-radius: 10px;
             display: flex;
@@ -325,14 +443,14 @@
         }
 
         .cta-banner {
-            background-color: #EBE6DC;
+            background: linear-gradient(135deg, #EAE5DC 0%, #DCD4C6 100%);
             border-radius: 16px;
             padding: 40px 20px;
             border: 1px solid var(--border-color);
         }
 
         .app-feature-box {
-            background-color: #EFECE3;
+            background: linear-gradient(135deg, #ECE6DA 0%, #E2DBD0 100%);
             border-radius: 16px;
             padding: 40px 30px;
             border: 1px solid var(--border-color);
@@ -346,7 +464,7 @@
             color: white !important;
             padding: 12px 22px;
             border-radius: 30px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -362,6 +480,11 @@
             background-color: var(--primary-sage);
         }
 
+        footer {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            backdrop-filter: blur(10px);
+        }
+
         footer a {
             text-decoration: none;
             color: var(--text-muted);
@@ -375,7 +498,7 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background-color: #EBE6DC;
+            background-color: #EAE5DC;
             color: var(--text-primary) !important;
             display: inline-flex;
             align-items: center;
@@ -422,7 +545,7 @@
         </div>
     </nav>
 
-    <!-- RUNNING TEXT / MARQUEE ALA MAJALAH FASHION -->
+    <!-- RUNNING TEXT / MARQUEE -->
     <div class="marquee-container">
         <div class="marquee-track">
             <span>✨ Curated Outfit &nbsp;&bull;&nbsp; Shopee Affiliate Partner &nbsp;&bull;&nbsp; Free Stylist Consultation &nbsp;&bull;&nbsp; Tetap Pantas di Setiap Aktivitas &nbsp;&bull;&nbsp; Curated Outfit &nbsp;&bull;&nbsp; Shopee Affiliate Partner &nbsp;&bull;&nbsp; Free Stylist Consultation &nbsp;&bull;&nbsp; Tetap Pantas di Setiap Aktivitas &nbsp;&bull;&nbsp;</span>
@@ -436,16 +559,149 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10" data-aos="fade-up" data-aos-duration="900">
-                        <span class="text-uppercase fw-bold text-muted d-block mb-2" style="font-size: 0.75rem; letter-spacing: 2px;">Editorial Volume 01</span>
+                        <span class="text-uppercase fw-bold text-muted d-block mb-2" style="font-size: 0.75rem; letter-spacing: 2px;">Editorial Volume 01 &bull; Sekolah, Kuliah & Kerja</span>
                         <h1 class="hero-title mb-3">Tampil <span>"Pantas"</span> di Setiap Aktivitas</h1>
                         <p class="hero-subtitle mb-4">
                             Nggak perlu bingung lagi mau pakai baju apa buat seharian. Temukan kurasi setelan outfit serbaguna untuk semua agendamu, beli langsung di Shopee, atau konsultasikan gaya personalmu gratis bersama Stylist kami!
                         </p>
-                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-4">
                             <button class="btn btn-custom-dark" onclick="switchTab('katalog')"><i class="fa-solid fa-border-all me-2"></i> Jelajahi Katalog</button>
                             <a href="https://api.whatsapp.com/send?phone=6285290956001&text=Halo%20Stylist%20Pantaskan,%20aku%20mau%20konsultasi%20style%20dulu%20dong!" target="_blank" rel="noopener noreferrer" class="btn btn-custom-dark" style="background-color: var(--primary-sage);"><i class="fa-brands fa-whatsapp me-2"></i> Konsultasi Stylist Gratis</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUTO-SCROLLING EDITORIAL CARDS SECTION (DIRECT KE INSTAGRAM PANTASKAN) -->
+        <section class="creativox-slider-section">
+            <div class="container-fluid px-0">
+                <div class="creativox-track">
+                    <!-- KARTU 1 -->
+                    <a href="https://www.instagram.com/pantaskan.project/" target="_blank" rel="noopener noreferrer" class="work-card">
+                        <div>
+                            <div class="work-card-header">
+                                <div class="work-card-avatar">P</div>
+                                <span class="fw-bold text-dark" style="font-size: 0.8rem;">Pantaskan Daily</span>
+                            </div>
+                            <img src="Asset/s1.webp" alt="Campus Look" class="work-card-img">
+                            <h6 class="work-card-title">Kuliah Pagi ke Nongkrong Sore Tanpa Ganti Baju</h6>
+                        </div>
+                        <div class="work-card-footer">
+                            <span><i class="fa-regular fa-heart me-1 text-danger"></i> 24.5rb</span>
+                            <span class="text-primary fw-semibold"><i class="fa-brands fa-instagram me-1"></i> Lihat IG</span>
+                        </div>
+                    </a>
+
+                    <!-- KARTU 2 -->
+                    <a href="https://www.instagram.com/pantaskan.project/" target="_blank" rel="noopener noreferrer" class="work-card">
+                        <div>
+                            <div class="work-card-header">
+                                <div class="work-card-avatar">P</div>
+                                <span class="fw-bold text-dark" style="font-size: 0.8rem;">Pantaskan Look</span>
+                            </div>
+                            <img src="Asset/s5.webp" alt="Smart Casual" class="work-card-img">
+                            <h6 class="work-card-title">Smart Casual Outfit Nyaman untuk First Jobber</h6>
+                        </div>
+                        <div class="work-card-footer">
+                            <span><i class="fa-regular fa-heart me-1 text-danger"></i> 18.2rb</span>
+                            <span class="text-primary fw-semibold"><i class="fa-brands fa-instagram me-1"></i> Lihat IG</span>
+                        </div>
+                    </a>
+
+                    <!-- KARTU 3 -->
+                    <a href="https://www.instagram.com/pantaskan.project/" target="_blank" rel="noopener noreferrer" class="work-card">
+                        <div>
+                            <div class="work-card-header">
+                                <div class="work-card-avatar">P</div>
+                                <span class="fw-bold text-dark" style="font-size: 0.8rem;">Pantaskan Style</span>
+                            </div>
+                            <img src="Asset/s8.webp" alt="Linen Series" class="work-card-img">
+                            <h6 class="work-card-title">Kemeja Linen Adem Buat Aktivitas Outdoor Seharian</h6>
+                        </div>
+                        <div class="work-card-footer">
+                            <span><i class="fa-regular fa-heart me-1 text-danger"></i> 31.9rb</span>
+                            <span class="text-primary fw-semibold"><i class="fa-brands fa-instagram me-1"></i> Lihat IG</span>
+                        </div>
+                    </a>
+
+                    <!-- KARTU 4 -->
+                    <a href="https://www.instagram.com/pantaskan.project/" target="_blank" rel="noopener noreferrer" class="work-card">
+                        <div>
+                            <div class="work-card-header">
+                                <div class="work-card-avatar">P</div>
+                                <span class="fw-bold text-dark" style="font-size: 0.8rem;">Pantaskan Tips</span>
+                            </div>
+                            <img src="Asset/s10.webp" alt="Denim Oversize" class="work-card-img">
+                            <h6 class="work-card-title">Trik Layering Denim Oversized Anti Gerah & Stylish</h6>
+                        </div>
+                        <div class="work-card-footer">
+                            <span><i class="fa-regular fa-heart me-1 text-danger"></i> 21.4rb</span>
+                            <span class="text-primary fw-semibold"><i class="fa-brands fa-instagram me-1"></i> Lihat IG</span>
+                        </div>
+                    </a>
+
+                    <!-- KARTU 5 -->
+                    <a href="https://www.instagram.com/pantaskan.project/" target="_blank" rel="noopener noreferrer" class="work-card">
+                        <div>
+                            <div class="work-card-header">
+                                <div class="work-card-avatar">P</div>
+                                <span class="fw-bold text-dark" style="font-size: 0.8rem;">Pantaskan Trend</span>
+                            </div>
+                            <img src="Asset/s12.webp" alt="Knitwear" class="work-card-img">
+                            <h6 class="work-card-title">Korean Knitwear Pilihan Favorit Anak Kampus</h6>
+                        </div>
+                        <div class="work-card-footer">
+                            <span><i class="fa-regular fa-heart me-1 text-danger"></i> 29.8rb</span>
+                            <span class="text-primary fw-semibold"><i class="fa-brands fa-instagram me-1"></i> Lihat IG</span>
+                        </div>
+                    </a>
+
+                    <!-- DUPLIKASI KARTU SUPAYA LOOPING BERJALAN MULUS -->
+                    <a href="https://www.instagram.com/pantaskan.project/" target="_blank" rel="noopener noreferrer" class="work-card">
+                        <div>
+                            <div class="work-card-header">
+                                <div class="work-card-avatar">P</div>
+                                <span class="fw-bold text-dark" style="font-size: 0.8rem;">Pantaskan Daily</span>
+                            </div>
+                            <img src="Asset/s1.webp" alt="Campus Look" class="work-card-img">
+                            <h6 class="work-card-title">Kuliah Pagi ke Nongkrong Sore Tanpa Ganti Baju</h6>
+                        </div>
+                        <div class="work-card-footer">
+                            <span><i class="fa-regular fa-heart me-1 text-danger"></i> 24.5rb</span>
+                            <span class="text-primary fw-semibold"><i class="fa-brands fa-instagram me-1"></i> Lihat IG</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/pantaskan.project/" target="_blank" rel="noopener noreferrer" class="work-card">
+                        <div>
+                            <div class="work-card-header">
+                                <div class="work-card-avatar">P</div>
+                                <span class="fw-bold text-dark" style="font-size: 0.8rem;">Pantaskan Look</span>
+                            </div>
+                            <img src="Asset/s5.webp" alt="Smart Casual" class="work-card-img">
+                            <h6 class="work-card-title">Smart Casual Outfit Nyaman untuk First Jobber</h6>
+                        </div>
+                        <div class="work-card-footer">
+                            <span><i class="fa-regular fa-heart me-1 text-danger"></i> 18.2rb</span>
+                            <span class="text-primary fw-semibold"><i class="fa-brands fa-instagram me-1"></i> Lihat IG</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/pantaskan.project/" target="_blank" rel="noopener noreferrer" class="work-card">
+                        <div>
+                            <div class="work-card-header">
+                                <div class="work-card-avatar">P</div>
+                                <span class="fw-bold text-dark" style="font-size: 0.8rem;">Pantaskan Style</span>
+                            </div>
+                            <img src="Asset/s8.webp" alt="Linen Series" class="work-card-img">
+                            <h6 class="work-card-title">Kemeja Linen Adem Buat Aktivitas Outdoor Seharian</h6>
+                        </div>
+                        <div class="work-card-footer">
+                            <span><i class="fa-regular fa-heart me-1 text-danger"></i> 31.9rb</span>
+                            <span class="text-primary fw-semibold"><i class="fa-brands fa-instagram me-1"></i> Lihat IG</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -466,7 +722,7 @@
         </section>
 
         <!-- SECTION APLIKASI & ULASAN PENGGUNA -->
-        <section class="py-5 bg-white border-top border-bottom">
+        <section class="py-5 border-top border-bottom" style="background: rgba(255,255,255,0.6); backdrop-filter: blur(10px);">
             <div class="container py-3">
                 <!-- App Banner -->
                 <div class="app-feature-box mb-5 shadow-sm" data-aos="fade-up">
@@ -823,7 +1079,7 @@
     </a>
 
     <!-- FOOTER -->
-    <footer class="py-5 mt-5 border-top bg-white">
+    <footer class="py-5 mt-5 border-top">
         <div class="container">
             <div class="row gy-4 mb-4">
                 <div class="col-md-5 text-center text-md-start">
