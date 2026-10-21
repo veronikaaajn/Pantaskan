@@ -213,6 +213,32 @@
             background-color: #EAE5DC;
         }
 
+        /* Khusus Kartu Bukti Transaksi (Rasio 9:16) */
+        .transaction-card {
+            width: 210px;
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            flex-shrink: 0;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .transaction-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--text-primary);
+        }
+
+        .transaction-card-img {
+            width: 100%;
+            aspect-ratio: 9/16;
+            object-fit: cover;
+            display: block;
+            background-color: #EAE5DC;
+        }
+
         /* Card Product Styling (Editorial Look) */
         .card-custom {
             border: 1px solid var(--border-color);
@@ -682,16 +708,18 @@
         </div>
     </div>
 
-    <!-- HALAMAN: REVIEW & TESTIMONIAL (REVISI: DIGABUNG KE TAB REVIEW SESUAI PERMINTAAN DOSEN) -->
+    <!-- HALAMAN: REVIEW & TESTIMONIAL -->
     <div id="page-testi" class="d-none py-5">
         <div class="container py-3">
+            <!-- HEADER -->
             <div class="text-center mb-5">
-                <span class="text-uppercase fw-bold text-muted d-block mb-2" style="font-size: 0.75rem; letter-spacing: 2px;">Wall of Love & Transaction Proofs</span>
-                <h2 class="fw-bold fs-2 mb-2 brand-heading">Review, Bukti Transaksi, & Testimonial</h2>
-                <p class="text-muted small">Bukti transaksi pembelian, ulasan toko Shopee, serta pengalaman nyata dari konsumen yang berkonsultasi langsung dengan Stylist</p>
+                <span class="text-uppercase fw-bold text-muted d-block mb-2" style="font-size: 0.75rem; letter-spacing: 2px;">Wall of Love & Verified Reviews</span>
+                <h2 class="fw-bold fs-2 mb-2 brand-heading">Review & Testimonial Konsumen</h2>
+                <p class="text-muted small">Kumpulan 10 ulasan nyata dari pembeli via Shopee dan konsumen yang berkonsultasi langsung dengan Stylist</p>
             </div>
 
-            <div class="row g-4">
+            <!-- 10 KARTU TESTIMONIAL KONSUMEN (5 KONSULTASI WA + 5 ULASAN SHOPEE) -->
+            <div class="row g-4 mb-5">
                 <!-- Testi 1: Diskusi Stylist WA -->
                 <div class="col-md-4">
                     <div class="testimonial-card h-100">
@@ -852,6 +880,36 @@
                     </div>
                 </div>
             </div>
+
+            <!-- SUB-SECTION BUKTI TRANSAKSI & CHAT CONSULTATION (MARQUEE SLIDER BERJALAN KANAN-KIRI DENGAN RASIO 9:16) -->
+            <div class="pt-4 border-top">
+                <div class="text-center mb-4">
+                    <span class="text-uppercase fw-bold text-muted d-block mb-1" style="font-size: 0.75rem; letter-spacing: 2px;">Verified Proofs & Chat Logs</span>
+                    <h3 class="fw-bold fs-3 brand-heading mb-1">Bukti Transaksi & Konsultasi Live</h3>
+                    <p class="text-muted small mb-0">Tangkapan layar bukti transaksi verified checkout dan obrolan konsultasi style bareng konsumen</p>
+                </div>
+
+                <!-- AUTO-SCROLLING SLIDER BUKTI TRANSAKSI (RASIO 9:16) -->
+                <section class="creativox-slider-section border-0 py-3">
+                    <div class="container-fluid px-0">
+                        <div class="creativox-track">
+                            <!-- Menggunakan class transaction-card & transaction-card-img dengan rasio 9:16 -->
+                            <div class="transaction-card"><img src="Asset/s117.jpeg" alt="Bukti Transaksi 1" class="transaction-card-img"></div>
+                            <div class="transaction-card"><img src="Asset/s118.jpeg" alt="Bukti Transaksi 2" class="transaction-card-img"></div>
+                            <div class="transaction-card"><img src="Asset/s119.jpeg" alt="Bukti Transaksi 3" class="transaction-card-img"></div>
+                            <div class="transaction-card"><img src="Asset/s120.jpeg" alt="Bukti Transaksi 4" class="transaction-card-img"></div>
+                            <div class="transaction-card"><img src="Asset/s121.jpeg" alt="Bukti Transaksi 5" class="transaction-card-img"></div>
+                            
+                            <!-- DUPLIKASI UNTUK LOOPING SMOOTH -->
+                            <div class="transaction-card"><img src="Asset/s122.jpeg" alt="Bukti Transaksi 1" class="transaction-card-img"></div>
+                            <div class="transaction-card"><img src="Asset/s117.jpeg" alt="Bukti Transaksi 2" class="transaction-card-img"></div>
+                            <div class="transaction-card"><img src="Asset/s118.jpeg" alt="Bukti Transaksi 3" class="transaction-card-img"></div>
+                            <div class="transaction-card"><img src="Asset/s119.jpeg" alt="Bukti Transaksi 4" class="transaction-card-img"></div>
+                            <div class="transaction-card"><img src="Asset/s120.jpeg" alt="Bukti Transaksi 5" class="transaction-card-img"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
 
@@ -1011,7 +1069,7 @@
             { title: "Sevine Elora Slingbag", cat: "Tas", price: "Rp56.900", img: "Asset/s99.webp", link: "https://s.shopee.co.id/40hDkR9cbQ?share_channel_code=1" },
             { title: "Tote Bag Tas Lipat", cat: "Tas", price: "Rp52.900", img: "Asset/s100.webp", link: "https://s.shopee.co.id/3LRWxFT1GE?share_channel_code=1" },
             { title: "Tas Kuliah", cat: "Tas", price: "Rp68.900", img: "Asset/s101.webp", link: "https://s.shopee.co.id/1BN2NHmtUn?share_channel_code=1" },
-            { title: "shoulder bag denim", cat: "Tas", price: "Rp75.000", img: "Asset/s102.webp", link: "https://s.shopee.co.id/6q1P7mKtzU?share_channel_code=1" },
+            { title: "shoulder bag denim", cat: "Tas", price: "Rp75.000", img: "Asset/s102.webp", link: "https://shopee.co.id/6q1P7mKtzU?share_channel_code=1" },
             { title: "Lunie Bag", cat: "Tas", price: "Rp82.650", img: "Asset/s103.webp", link: "https://s.shopee.co.id/9zyQtXarRI?share_channel_code=1" },
             { title: "Flat Shoes Wanita Mary Jane", cat: "Alas Kaki", price: "Rp33.990", img: "Asset/s79.webp", link: "https://s.shopee.co.id/6L58IlY7bU?share_channel_code=1" },
             { title: "Sepatu Flat Oldschool", cat: "Alas Kaki", price: "Rp39.250", img: "Asset/s80.webp", link: "https://s.shopee.co.id/2BFZL7wNZb?share_channel_code=1" },
@@ -1048,7 +1106,6 @@
                 catLabel = "Alas Kaki";
             }
 
-            // REVISI FORMAT PESAN WHATSAPP: Memuat detail info barang, niat beli, serta format pertanyaan yang jelas
             let waText = `Halo Stylist Pantaskan, saya ingin membeli/bertanya mengenai produk '${titleStr}' (ID: ${i}) dengan harga ${template.price}. Mohon informasi ketersediaan stok serta panduan transaksinya. Terima kasih!`;
 
             productsData.push({
@@ -1103,7 +1160,7 @@
             if (fullGrid) fullGrid.innerHTML = productsData.map(createProductCard).join("");
         }
 
-        /* 3. NAVIGATION & INTERACTIONS (Per-Tab Handler Tanpa Error) */
+        /* 3. NAVIGATION & INTERACTIONS */
         function switchTab(pageId) {
             const pages = ["home", "about", "katalog", "testi"];
             pages.forEach(p => {
